@@ -1,0 +1,719 @@
+district,state,pathogen,antibiotic,prediction,severity,language,alert_text
+Varanasi,Unknown,Klebsiella pneumoniae,Gentamicin,59.71613119270272,ORANGE,English,"
+🟠 ELEVATED RISK — Varanasi, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Gentamicin: 59.7%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Faridabad,Unknown,Acinetobacter baumannii,Ceftriaxone,95.05839636174925,RED,English,"
+🔴 HIGH RISK ALERT — Faridabad, Unknown
+
+Predicted Acinetobacter baumannii resistance to Ceftriaxone: 95.1%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ceftriaxone usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Ujjain,Unknown,Acinetobacter baumannii,Ciprofloxacin,84.0197426223616,RED,English,"
+🔴 HIGH RISK ALERT — Ujjain, Unknown
+
+Predicted Acinetobacter baumannii resistance to Ciprofloxacin: 84.0%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ciprofloxacin usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Udaipur,Unknown,Escherichia coli,Ceftriaxone,72.12844875807095,RED,English,"
+🔴 HIGH RISK ALERT — Udaipur, Unknown
+
+Predicted Escherichia coli resistance to Ceftriaxone: 72.1%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ceftriaxone usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Madurai,Unknown,Acinetobacter baumannii,Piperacillin-Tazobactam,67.13584035604612,ORANGE,English,"
+🟠 ELEVATED RISK — Madurai, Unknown
+
+Predicted Acinetobacter baumannii resistance to Piperacillin-Tazobactam: 67.1%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Kota,Unknown,Escherichia coli,Ceftriaxone,59.56275022866153,ORANGE,English,"
+🟠 ELEVATED RISK — Kota, Unknown
+
+Predicted Escherichia coli resistance to Ceftriaxone: 59.6%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Dehradun,Unknown,Acinetobacter baumannii,Ceftriaxone,92.58875851128688,RED,English,"
+🔴 HIGH RISK ALERT — Dehradun, Unknown
+
+Predicted Acinetobacter baumannii resistance to Ceftriaxone: 92.6%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ceftriaxone usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Ujjain,Unknown,Klebsiella pneumoniae,Cefoperazone-Sulbactam,53.485139745297104,ORANGE,English,"
+🟠 ELEVATED RISK — Ujjain, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Cefoperazone-Sulbactam: 53.5%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Varanasi,Unknown,Acinetobacter baumannii,Gentamicin,73.73069685045633,RED,English,"
+🔴 HIGH RISK ALERT — Varanasi, Unknown
+
+Predicted Acinetobacter baumannii resistance to Gentamicin: 73.7%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Gentamicin usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Nashik,Unknown,Klebsiella pneumoniae,Ceftriaxone,73.51448519168741,RED,English,"
+🔴 HIGH RISK ALERT — Nashik, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Ceftriaxone: 73.5%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ceftriaxone usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Faridabad,Unknown,Klebsiella pneumoniae,Ciprofloxacin,65.0889607111313,ORANGE,English,"
+🟠 ELEVATED RISK — Faridabad, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Ciprofloxacin: 65.1%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Tirupati,Unknown,Pseudomonas aeruginosa,Ceftriaxone,51.221321970402826,ORANGE,English,"
+🟠 ELEVATED RISK — Tirupati, Unknown
+
+Predicted Pseudomonas aeruginosa resistance to Ceftriaxone: 51.2%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Nizamabad,Unknown,Escherichia coli,Ciprofloxacin,72.18277276270302,RED,English,"
+🔴 HIGH RISK ALERT — Nizamabad, Unknown
+
+Predicted Escherichia coli resistance to Ciprofloxacin: 72.2%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ciprofloxacin usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Guntur,Unknown,Acinetobacter baumannii,Gentamicin,79.53653083813205,RED,English,"
+🔴 HIGH RISK ALERT — Guntur, Unknown
+
+Predicted Acinetobacter baumannii resistance to Gentamicin: 79.5%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Gentamicin usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Kochi,Unknown,Acinetobacter baumannii,Ceftriaxone,92.1849335345954,RED,Malayalam,"
+🔴 HIGH RISK ALERT — Kochi, Unknown
+
+Predicted Acinetobacter baumannii resistance to Ceftriaxone: 92.2%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ceftriaxone usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Thane,Unknown,Staphylococcus aureus,Ciprofloxacin,51.15118346706118,ORANGE,English,"
+🟠 ELEVATED RISK — Thane, Unknown
+
+Predicted Staphylococcus aureus resistance to Ciprofloxacin: 51.2%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Kochi,Unknown,Acinetobacter baumannii,Gentamicin,67.61653889298245,ORANGE,Malayalam,"
+🟠 ELEVATED RISK — Kochi, Unknown
+
+Predicted Acinetobacter baumannii resistance to Gentamicin: 67.6%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Thane,Unknown,Acinetobacter baumannii,Amikacin,57.33598494431524,ORANGE,English,"
+🟠 ELEVATED RISK — Thane, Unknown
+
+Predicted Acinetobacter baumannii resistance to Amikacin: 57.3%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+North Delhi,Unknown,Acinetobacter baumannii,Amikacin,65.60494952187248,ORANGE,English,"
+🟠 ELEVATED RISK — North Delhi, Unknown
+
+Predicted Acinetobacter baumannii resistance to Amikacin: 65.6%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Patiala,Unknown,Klebsiella pneumoniae,Gentamicin,59.82171606346331,ORANGE,English,"
+🟠 ELEVATED RISK — Patiala, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Gentamicin: 59.8%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Guntur,Unknown,Pseudomonas aeruginosa,Ceftriaxone,54.32009510963557,ORANGE,English,"
+🟠 ELEVATED RISK — Guntur, Unknown
+
+Predicted Pseudomonas aeruginosa resistance to Ceftriaxone: 54.3%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Mohali,Unknown,Acinetobacter baumannii,Amikacin,56.17497126088665,ORANGE,English,"
+🟠 ELEVATED RISK — Mohali, Unknown
+
+Predicted Acinetobacter baumannii resistance to Amikacin: 56.2%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Karimnagar,Unknown,Escherichia coli,Ceftriaxone,61.59637788777473,ORANGE,English,"
+🟠 ELEVATED RISK — Karimnagar, Unknown
+
+Predicted Escherichia coli resistance to Ceftriaxone: 61.6%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Nizamabad,Unknown,Acinetobacter baumannii,Piperacillin-Tazobactam,63.42923401765151,ORANGE,English,"
+🟠 ELEVATED RISK — Nizamabad, Unknown
+
+Predicted Acinetobacter baumannii resistance to Piperacillin-Tazobactam: 63.4%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Jamshedpur,Unknown,Klebsiella pneumoniae,Ceftriaxone,78.50655751686696,RED,English,"
+🔴 HIGH RISK ALERT — Jamshedpur, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Ceftriaxone: 78.5%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ceftriaxone usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Indore,Unknown,Escherichia coli,Ciprofloxacin,73.11661415339779,RED,English,"
+🔴 HIGH RISK ALERT — Indore, Unknown
+
+Predicted Escherichia coli resistance to Ciprofloxacin: 73.1%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ciprofloxacin usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Dehradun,Unknown,Pseudomonas aeruginosa,Ceftriaxone,61.66733685171205,ORANGE,English,"
+🟠 ELEVATED RISK — Dehradun, Unknown
+
+Predicted Pseudomonas aeruginosa resistance to Ceftriaxone: 61.7%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Thrissur,Unknown,Staphylococcus aureus,Ciprofloxacin,55.2870820273987,ORANGE,English,"
+🟠 ELEVATED RISK — Thrissur, Unknown
+
+Predicted Staphylococcus aureus resistance to Ciprofloxacin: 55.3%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Kollam,Unknown,Acinetobacter baumannii,Cefoperazone-Sulbactam,52.15758729747087,ORANGE,English,"
+🟠 ELEVATED RISK — Kollam, Unknown
+
+Predicted Acinetobacter baumannii resistance to Cefoperazone-Sulbactam: 52.2%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Asansol,Unknown,Escherichia coli,Ciprofloxacin,75.37618082384348,RED,English,"
+🔴 HIGH RISK ALERT — Asansol, Unknown
+
+Predicted Escherichia coli resistance to Ciprofloxacin: 75.4%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ciprofloxacin usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Bilaspur,Unknown,Klebsiella pneumoniae,Ciprofloxacin,70.29146207127721,RED,English,"
+🔴 HIGH RISK ALERT — Bilaspur, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Ciprofloxacin: 70.3%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ciprofloxacin usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+East Delhi,Unknown,Acinetobacter baumannii,Ceftriaxone,83.43247983248527,RED,English,"
+🔴 HIGH RISK ALERT — East Delhi, Unknown
+
+Predicted Acinetobacter baumannii resistance to Ceftriaxone: 83.4%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ceftriaxone usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Bhilai,Unknown,Acinetobacter baumannii,Ciprofloxacin,81.74130777690509,RED,English,"
+🔴 HIGH RISK ALERT — Bhilai, Unknown
+
+Predicted Acinetobacter baumannii resistance to Ciprofloxacin: 81.7%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ciprofloxacin usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Karnal,Unknown,Klebsiella pneumoniae,Ceftriaxone,72.9299613073591,RED,English,"
+🔴 HIGH RISK ALERT — Karnal, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Ceftriaxone: 72.9%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ceftriaxone usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Gorakhpur,Unknown,Klebsiella pneumoniae,Ceftriaxone,79.55924854840977,RED,English,"
+🔴 HIGH RISK ALERT — Gorakhpur, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Ceftriaxone: 79.6%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ceftriaxone usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Faridabad,Unknown,Staphylococcus aureus,Ciprofloxacin,55.12463500286108,ORANGE,English,"
+🟠 ELEVATED RISK — Faridabad, Unknown
+
+Predicted Staphylococcus aureus resistance to Ciprofloxacin: 55.1%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Mangalore,Unknown,Escherichia coli,Ceftriaxone,68.90471626240111,ORANGE,English,"
+🟠 ELEVATED RISK — Mangalore, Unknown
+
+Predicted Escherichia coli resistance to Ceftriaxone: 68.9%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Ujjain,Unknown,Staphylococcus aureus,Ciprofloxacin,63.20119503107391,ORANGE,English,"
+🟠 ELEVATED RISK — Ujjain, Unknown
+
+Predicted Staphylococcus aureus resistance to Ciprofloxacin: 63.2%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Allahabad,Unknown,Klebsiella pneumoniae,Ciprofloxacin,65.29720426519174,ORANGE,English,"
+🟠 ELEVATED RISK — Allahabad, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Ciprofloxacin: 65.3%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Rishikesh,Unknown,Escherichia coli,Ciprofloxacin,87.03316351724712,RED,English,"
+🔴 HIGH RISK ALERT — Rishikesh, Unknown
+
+Predicted Escherichia coli resistance to Ciprofloxacin: 87.0%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ciprofloxacin usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Bhilai,Unknown,Escherichia coli,Ciprofloxacin,78.3782072991412,RED,English,"
+🔴 HIGH RISK ALERT — Bhilai, Unknown
+
+Predicted Escherichia coli resistance to Ciprofloxacin: 78.4%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ciprofloxacin usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Chennai,Unknown,Acinetobacter baumannii,Amikacin,73.25214847616508,RED,Tamil,"
+🔴 HIGH RISK ALERT — Chennai, Unknown
+
+Predicted Acinetobacter baumannii resistance to Amikacin: 73.3%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Amikacin usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Howrah,Unknown,Acinetobacter baumannii,Ceftriaxone,92.79280968013252,RED,English,"
+🔴 HIGH RISK ALERT — Howrah, Unknown
+
+Predicted Acinetobacter baumannii resistance to Ceftriaxone: 92.8%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ceftriaxone usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Mohali,Unknown,Klebsiella pneumoniae,Piperacillin-Tazobactam,54.001617900630514,ORANGE,English,"
+🟠 ELEVATED RISK — Mohali, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Piperacillin-Tazobactam: 54.0%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Bikaner,Unknown,Acinetobacter baumannii,Ceftriaxone,82.5129607838652,RED,English,"
+🔴 HIGH RISK ALERT — Bikaner, Unknown
+
+Predicted Acinetobacter baumannii resistance to Ceftriaxone: 82.5%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ceftriaxone usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Vijayawada,Unknown,Klebsiella pneumoniae,Gentamicin,53.41441909125047,ORANGE,English,"
+🟠 ELEVATED RISK — Vijayawada, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Gentamicin: 53.4%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+West Delhi,Unknown,Escherichia coli,Ciprofloxacin,72.40424621205614,RED,English,"
+🔴 HIGH RISK ALERT — West Delhi, Unknown
+
+Predicted Escherichia coli resistance to Ciprofloxacin: 72.4%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ciprofloxacin usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Bellary,Unknown,Klebsiella pneumoniae,Ceftriaxone,85.14493858421183,RED,English,"
+🔴 HIGH RISK ALERT — Bellary, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Ceftriaxone: 85.1%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ceftriaxone usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Hubli,Unknown,Klebsiella pneumoniae,Cefoperazone-Sulbactam,59.66865406777277,ORANGE,English,"
+🟠 ELEVATED RISK — Hubli, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Cefoperazone-Sulbactam: 59.7%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Amritsar,Unknown,Acinetobacter baumannii,Amikacin,63.18699760686814,ORANGE,English,"
+🟠 ELEVATED RISK — Amritsar, Unknown
+
+Predicted Acinetobacter baumannii resistance to Amikacin: 63.2%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Purnia,Unknown,Pseudomonas aeruginosa,Ceftriaxone,50.72203207092151,ORANGE,English,"
+🟠 ELEVATED RISK — Purnia, Unknown
+
+Predicted Pseudomonas aeruginosa resistance to Ceftriaxone: 50.7%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+New Delhi,Unknown,Acinetobacter baumannii,Gentamicin,76.81803010368216,RED,English,"
+🔴 HIGH RISK ALERT — New Delhi, Unknown
+
+Predicted Acinetobacter baumannii resistance to Gentamicin: 76.8%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Gentamicin usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Muzaffarpur,Unknown,Acinetobacter baumannii,Ciprofloxacin,78.0798879838999,RED,English,"
+🔴 HIGH RISK ALERT — Muzaffarpur, Unknown
+
+Predicted Acinetobacter baumannii resistance to Ciprofloxacin: 78.1%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ciprofloxacin usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Erode,Unknown,Acinetobacter baumannii,Ceftriaxone,99.45227939508906,RED,English,"
+🔴 HIGH RISK ALERT — Erode, Unknown
+
+Predicted Acinetobacter baumannii resistance to Ceftriaxone: 99.5%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ceftriaxone usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+Indore,Unknown,Acinetobacter baumannii,Piperacillin-Tazobactam,64.37743202174586,ORANGE,English,"
+🟠 ELEVATED RISK — Indore, Unknown
+
+Predicted Acinetobacter baumannii resistance to Piperacillin-Tazobactam: 64.4%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Kanpur,Unknown,Acinetobacter baumannii,Piperacillin-Tazobactam,68.41361530632432,ORANGE,English,"
+🟠 ELEVATED RISK — Kanpur, Unknown
+
+Predicted Acinetobacter baumannii resistance to Piperacillin-Tazobactam: 68.4%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Tirupati,Unknown,Klebsiella pneumoniae,Gentamicin,63.98663548487664,ORANGE,English,"
+🟠 ELEVATED RISK — Tirupati, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Gentamicin: 64.0%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Rishikesh,Unknown,Klebsiella pneumoniae,Piperacillin-Tazobactam,50.897891218465965,ORANGE,English,"
+🟠 ELEVATED RISK — Rishikesh, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Piperacillin-Tazobactam: 50.9%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Jalandhar,Unknown,Klebsiella pneumoniae,Gentamicin,55.256617031858376,ORANGE,English,"
+🟠 ELEVATED RISK — Jalandhar, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Gentamicin: 55.3%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Bathinda,Unknown,Acinetobacter baumannii,Ciprofloxacin,75.12079324743524,RED,English,"
+🔴 HIGH RISK ALERT — Bathinda, Unknown
+
+Predicted Acinetobacter baumannii resistance to Ciprofloxacin: 75.1%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ciprofloxacin usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"
+New Delhi,Unknown,Acinetobacter baumannii,Amikacin,56.58044146097059,ORANGE,English,"
+🟠 ELEVATED RISK — New Delhi, Unknown
+
+Predicted Acinetobacter baumannii resistance to Amikacin: 56.6%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Rourkela,Unknown,Klebsiella pneumoniae,Gentamicin,50.52899130605537,ORANGE,English,"
+🟠 ELEVATED RISK — Rourkela, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Gentamicin: 50.5%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Solapur,Unknown,Staphylococcus aureus,Ciprofloxacin,56.9309564055903,ORANGE,English,"
+🟠 ELEVATED RISK — Solapur, Unknown
+
+Predicted Staphylococcus aureus resistance to Ciprofloxacin: 56.9%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Dehradun,Unknown,Klebsiella pneumoniae,Gentamicin,58.61395416720962,ORANGE,English,"
+🟠 ELEVATED RISK — Dehradun, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Gentamicin: 58.6%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Asansol,Unknown,Klebsiella pneumoniae,Cefoperazone-Sulbactam,57.16546555043446,ORANGE,English,"
+🟠 ELEVATED RISK — Asansol, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Cefoperazone-Sulbactam: 57.2%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
+"
+Ahmedabad,Unknown,Escherichia coli,Ciprofloxacin,85.07872555871613,RED,Gujarati,"
+🔴 HIGH RISK ALERT — Ahmedabad, Unknown
+
+Predicted Escherichia coli resistance to Ciprofloxacin: 85.1%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ciprofloxacin usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.
+"

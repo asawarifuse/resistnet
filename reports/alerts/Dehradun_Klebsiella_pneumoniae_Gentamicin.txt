@@ -1,0 +1,9 @@
+
+🟠 ELEVATED RISK — Dehradun, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Gentamicin: 58.6%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.

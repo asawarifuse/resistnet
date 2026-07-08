@@ -1,0 +1,11 @@
+
+🔴 HIGH RISK ALERT — Nizamabad, Unknown
+
+Predicted Escherichia coli resistance to Ciprofloxacin: 72.2%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ciprofloxacin usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.

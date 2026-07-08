@@ -1,0 +1,9 @@
+
+🟠 ELEVATED RISK — Thrissur, Unknown
+
+Predicted Staphylococcus aureus resistance to Ciprofloxacin: 55.3%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.

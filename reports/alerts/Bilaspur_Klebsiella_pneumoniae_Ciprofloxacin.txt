@@ -1,0 +1,11 @@
+
+🔴 HIGH RISK ALERT — Bilaspur, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Ciprofloxacin: 70.3%
+
+This is driven primarily by resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Immediately review Ciprofloxacin usage protocols. 
+Consider alternative antibiotics. Monitor resistance trends weekly.
+
+Action required within 48 hours.

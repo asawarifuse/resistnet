@@ -1,0 +1,9 @@
+
+🟠 ELEVATED RISK — Rishikesh, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Piperacillin-Tazobactam: 50.9%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.

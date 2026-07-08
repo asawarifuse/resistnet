@@ -1,0 +1,9 @@
+
+🟠 ELEVATED RISK — North Delhi, Unknown
+
+Predicted Acinetobacter baumannii resistance to Amikacin: 65.6%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.

@@ -1,0 +1,9 @@
+
+🟠 ELEVATED RISK — Allahabad, Unknown
+
+Predicted Klebsiella pneumoniae resistance to Ciprofloxacin: 65.3%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.

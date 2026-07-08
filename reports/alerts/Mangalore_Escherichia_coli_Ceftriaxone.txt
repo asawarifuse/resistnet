@@ -1,0 +1,9 @@
+
+🟠 ELEVATED RISK — Mangalore, Unknown
+
+Predicted Escherichia coli resistance to Ceftriaxone: 68.9%
+
+Key factors: resistance_trend and prediction_confidence.
+
+RECOMMENDATION: Increase surveillance frequency. 
+Review antibiotic stewardship practices this month.
