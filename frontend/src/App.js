@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import MapView from './MapView';
+import { ResistanceBarChart, SeverityPieChart, PathogenBarChart, TrendLineChart } from './Charts';
 
 function App() {
   const [stats, setStats] = useState(null);
@@ -126,6 +127,21 @@ function App() {
           </div>
         </div>
       )}
+
+            {/* Charts */}
+      {districtData && (
+        <div className="section">
+          <h2>📊 Analytics for {selectedDistrict}</h2>
+          <div className="charts-grid">
+            <ResistanceBarChart districtData={districtData} />
+            <SeverityPieChart districtData={districtData} />
+            <PathogenBarChart districtData={districtData} />
+            <TrendLineChart districtData={districtData} />
+          </div>
+        </div>
+      )}
+
+      {/* Map Section */}
 
             {/* Map Section */}
       <div className="section">

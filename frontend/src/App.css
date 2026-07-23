@@ -127,3 +127,28 @@ body {
   border-radius: 50%;
   display: inline-block;
 }
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.chart-card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.chart-card h3 {
+  color: #e2e8f0;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
