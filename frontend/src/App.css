@@ -99,3 +99,31 @@ body {
   border-top: 1px solid #1e293b;
   margin-top: 40px;
 }
+
+.map-container {
+  background: #1e293b;
+  padding: 5px;
+  border-radius: 12px;
+}
+
+.legend {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 15px;
+  flex-wrap: wrap;
+}
+
+.legend div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.legend span {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: inline-block;
+}

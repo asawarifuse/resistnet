@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
+import MapView from './MapView';
 
 function App() {
   const [stats, setStats] = useState(null);
@@ -125,6 +126,15 @@ function App() {
           </div>
         </div>
       )}
+
+            {/* Map Section */}
+      <div className="section">
+        <h2>🗺️ India District Risk Map</h2>
+        <MapView 
+          highRiskData={highRisk} 
+          onDistrictClick={fetchDistrict} 
+        />
+      </div>
 
       <footer className="footer">
         <p>ResistNet v1.0 | Built for India's fight against superbugs</p>
