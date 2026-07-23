@@ -10,7 +10,7 @@ function App() {
   const [selectedDistrict, setSelectedDistrict] = useState(null);
   const [districtData, setDistrictData] = useState(null);
 
-  const API = 'http://127.0.0.1:8000';
+  const API = 'http://localhost:8000';
 
   useEffect(() => {
     fetchStats();
