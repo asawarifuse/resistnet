@@ -8,7 +8,11 @@ from fastapi.middleware.cors import CORSMiddleware
 import sqlite3
 import pandas as pd
 import os
+import sys
 from datetime import datetime
+
+sys.path.append('.')
+from src.api.predict_endpoint import predict_for_district
 
 app = FastAPI(
     title="ResistNet API",
@@ -16,7 +20,6 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Allow frontend to call API
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -27,7 +30,6 @@ app.add_middleware(
 DB_PATH = "data/resistnet.db"
 
 def get_db():
-    """Get database connection"""
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
@@ -47,7 +49,6 @@ def root():
 
 @app.get("/health")
 def health_check():
-    """Check if API and database are alive"""
     try:
         conn = get_db()
         conn.execute("SELECT 1")
@@ -62,18 +63,14 @@ def health_check():
 
 @app.get("/api/districts")
 def get_districts(state: str = None):
-    """Get all districts or filter by state"""
     conn = get_db()
-    
     if state:
         query = "SELECT * FROM districts WHERE state_name = ?"
         rows = conn.execute(query, (state,)).fetchall()
     else:
         query = "SELECT * FROM districts"
         rows = conn.execute(query).fetchall()
-    
     conn.close()
-    
     return {
         "count": len(rows),
         "districts": [dict(row) for row in rows]
@@ -81,7 +78,6 @@ def get_districts(state: str = None):
 
 @app.get("/api/states")
 def get_states():
-    """Get all states"""
     conn = get_db()
     rows = conn.execute("SELECT DISTINCT state_name FROM districts ORDER BY state_name").fetchall()
     conn.close()
@@ -93,14 +89,12 @@ def get_states():
 
 @app.get("/api/predictions")
 def get_predictions(
-    district: str = Query(None, description="District name"),
-    pathogen: str = Query(None, description="Pathogen name"),
-    severity: str = Query(None, description="RED, ORANGE, YELLOW, GREEN"),
-    limit: int = Query(20, description="Max results")
+    district: str = Query(None),
+    pathogen: str = Query(None),
+    severity: str = Query(None),
+    limit: int = Query(20)
 ):
-    """Get predictions with optional filters"""
     conn = get_db()
-    
     query = """
         SELECT d.district_name, d.state_name, p.pathogen_name,
                a.antibiotic_name, pr.predicted_resistance, 
@@ -112,7 +106,6 @@ def get_predictions(
         WHERE 1=1
     """
     params = []
-    
     if district:
         query += " AND d.district_name = ?"
         params.append(district)
@@ -128,7 +121,6 @@ def get_predictions(
     
     rows = conn.execute(query, params).fetchall()
     conn.close()
-    
     return {
         "count": len(rows),
         "predictions": [dict(row) for row in rows]
@@ -140,13 +132,11 @@ def get_predictions(
 
 @app.get("/api/alerts")
 def get_alerts(
-    severity: str = Query(None, description="RED, ORANGE, YELLOW, GREEN"),
-    status: str = Query(None, description="generated, sent, acknowledged"),
-    limit: int = Query(20, description="Max results")
+    severity: str = Query(None),
+    status: str = Query(None),
+    limit: int = Query(20)
 ):
-    """Get alerts with optional filters"""
     conn = get_db()
-    
     query = """
         SELECT al.alert_id, d.district_name, d.state_name,
                al.alert_text, al.severity, al.language, 
@@ -156,7 +146,6 @@ def get_alerts(
         WHERE 1=1
     """
     params = []
-    
     if severity:
         query += " AND al.severity = ?"
         params.append(severity)
@@ -169,7 +158,6 @@ def get_alerts(
     
     rows = conn.execute(query, params).fetchall()
     conn.close()
-    
     return {
         "count": len(rows),
         "alerts": [dict(row) for row in rows]
@@ -181,42 +169,22 @@ def get_alerts(
 
 @app.get("/api/stats")
 def get_statistics():
-    """Get overall statistics for dashboard"""
     conn = get_db()
-    
-    # Total records
     total_records = conn.execute("SELECT COUNT(*) FROM resistance_records").fetchone()[0]
-    
-    # Total districts
     total_districts = conn.execute("SELECT COUNT(*) FROM districts").fetchone()[0]
+    avg_resistance = conn.execute("SELECT AVG(resistance_rate) FROM resistance_records").fetchone()[0]
+    red_alerts = conn.execute("SELECT COUNT(*) FROM predictions WHERE severity='RED'").fetchone()[0]
+    orange_alerts = conn.execute("SELECT COUNT(*) FROM predictions WHERE severity='ORANGE'").fetchone()[0]
     
-    # Average resistance
-    avg_resistance = conn.execute(
-        "SELECT AVG(resistance_rate) FROM resistance_records"
-    ).fetchone()[0]
-    
-    # Alert counts by severity
-    red_alerts = conn.execute(
-        "SELECT COUNT(*) FROM predictions WHERE severity='RED'"
-    ).fetchone()[0]
-    
-    orange_alerts = conn.execute(
-        "SELECT COUNT(*) FROM predictions WHERE severity='ORANGE'"
-    ).fetchone()[0]
-    
-    # Top high-risk district
     top_district = conn.execute("""
-        SELECT d.district_name, d.state_name, 
-               AVG(r.resistance_rate) as avg_res
+        SELECT d.district_name, d.state_name, AVG(r.resistance_rate) as avg_res
         FROM resistance_records r
         JOIN districts d ON r.district_id = d.district_id
         GROUP BY r.district_id
-        ORDER BY avg_res DESC
-        LIMIT 1
+        ORDER BY avg_res DESC LIMIT 1
     """).fetchone()
     
     conn.close()
-    
     return {
         "total_records": total_records,
         "total_districts": total_districts,
@@ -230,6 +198,42 @@ def get_statistics():
         },
         "last_updated": datetime.now().isoformat()
     }
+
+# ============================================================
+# ENSEMBLE PREDICTION
+# ============================================================
+
+@app.get("/api/predict/district")
+def predict_district(district: str = Query(..., description="District name")):
+    try:
+        result = predict_for_district(district)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/predict/high-risk")
+def get_high_risk_districts(limit: int = Query(10)):
+    try:
+        conn = get_db()
+        query = """
+            SELECT d.district_name, d.state_name, 
+                   AVG(r.resistance_rate) as avg_resistance,
+                   COUNT(DISTINCT p.pathogen_id) as pathogen_count
+            FROM resistance_records r
+            JOIN districts d ON r.district_id = d.district_id
+            JOIN pathogens p ON r.pathogen_id = p.pathogen_id
+            GROUP BY r.district_id
+            ORDER BY avg_resistance DESC
+            LIMIT ?
+        """
+        rows = conn.execute(query, (limit,)).fetchall()
+        conn.close()
+        return {
+            "count": len(rows),
+            "high_risk_districts": [dict(row) for row in rows]
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 # ============================================================
 # STARTUP
