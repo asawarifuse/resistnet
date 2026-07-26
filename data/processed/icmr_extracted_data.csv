@@ -1,0 +1,8 @@
+Pathogen,Antibiotic,No. Tested,Resistance Rate (%),State,Site
+Escherichia coli,Ceftriaxone,2456,62.3,Maharashtra,Mumbai
+Escherichia coli,Ciprofloxacin,2456,73.1,Maharashtra,Mumbai
+Klebsiella pneumoniae,Ceftriaxone,1823,78.5,Delhi,AIIMS
+Klebsiella pneumoniae,Ciprofloxacin,1823,65.2,Delhi,AIIMS
+Acinetobacter baumannii,Ceftriaxone,987,85.4,Tamil Nadu,Chennai
+Pseudomonas aeruginosa,Imipenem,756,22.1,Karnataka,Bangalore
+Staphylococcus aureus,Oxacillin,3120,42.8,West Bengal,Kolkata
