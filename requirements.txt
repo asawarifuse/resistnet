@@ -20,4 +20,3 @@ pdfplumber
 statsmodels
 imbalanced-learn
 mlflow
-pip freeze > requirements.txt
