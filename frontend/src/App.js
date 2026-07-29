@@ -37,6 +37,7 @@ import Feedback from './Feedback';
 import Changelog from './Changelog';
 import PrintReport from './PrintReport';
 
+
 function App() {
   const [stats, setStats] = useState(null);
   const [highRisk, setHighRisk] = useState([]);
@@ -190,6 +191,7 @@ function App() {
           <CompareDistricts />
 
           <div className="section">
+            
             <h2>⚠️ Top High-Risk Districts <InfoTip text="Districts with highest average antibiotic resistance. Click any district to see detailed predictions." /></h2>
             {highRisk.length === 0 ? (
               <SkeletonLoader count={4} />
@@ -301,6 +303,7 @@ function App() {
                 </table>
               </div>
               <ExportReport districtData={districtData} selectedDistrict={selectedDistrict} />
+              
             </div>
           )}
 

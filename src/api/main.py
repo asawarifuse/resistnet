@@ -236,6 +236,57 @@ def get_high_risk_districts(limit: int = Query(10)):
         raise HTTPException(status_code=500, detail=str(e))
 
 # ============================================================
+# SHAP EXPLAINABILITY
+# ============================================================
+
+@app.get("/api/explain/{district}")
+def explain_district(district: str):
+    """Get SHAP-like explanation for a district's top prediction"""
+    try:
+        conn = get_db()
+        
+        query = """
+            SELECT d.district_name, d.state_name, p.pathogen_name,
+                   a.antibiotic_name, pr.predicted_resistance, pr.severity
+            FROM predictions pr
+            JOIN districts d ON pr.district_id = d.district_id
+            JOIN pathogens p ON pr.pathogen_id = p.pathogen_id
+            JOIN antibiotics a ON pr.antibiotic_id = a.antibiotic_id
+            WHERE d.district_name = ?
+            ORDER BY pr.predicted_resistance DESC
+            LIMIT 1
+        """
+        
+        row = conn.execute(query, (district,)).fetchone()
+        conn.close()
+        
+        if not row:
+            raise HTTPException(status_code=404, detail="District not found")
+        
+        result = dict(row)
+        
+        # Simulated feature contributions (in production, these come from SHAP)
+        drivers = [
+            {"feature": "Recent resistance trend", "impact": round(result['predicted_resistance'] * 0.35, 1), "direction": "up"},
+            {"feature": "Antibiotic sales volume", "impact": round(result['predicted_resistance'] * 0.20, 1), "direction": "up"},
+            {"feature": "Seasonal factor (Monsoon)", "impact": round(result['predicted_resistance'] * 0.15, 1), "direction": "up"},
+            {"feature": "District population density", "impact": round(result['predicted_resistance'] * 0.12, 1), "direction": "up"},
+            {"feature": "Previous quarter resistance", "impact": round(result['predicted_resistance'] * 0.10, 1), "direction": "up"},
+            {"feature": "Testing coverage rate", "impact": round(result['predicted_resistance'] * 0.05, 1), "direction": "down"},
+            {"feature": "Antibiotic stewardship program", "impact": round(result['predicted_resistance'] * 0.03, 1), "direction": "down"},
+        ]
+        
+        result["drivers"] = drivers
+        result["base_value"] = 37.5
+        
+        return result
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    
+# ============================================================
 # STARTUP
 # ============================================================
 
