@@ -48,7 +48,7 @@ function App() {
     const [allDistricts, setAllDistricts] = useState([]);
       const [showChangelog, setShowChangelog] = useState(false);
 
-  const API = 'http://localhost:8000';
+  const API = 'https://resistnet-api.onrender.com';
 
   useEffect(() => {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
