@@ -73,33 +73,31 @@ ResistNet predicts antibiotic resistance outbreaks **48 hours before they happen
 
 ---
 
-## 📁 Project Structure
+📁 Project Structure
 
 resistnet/
-├── frontend/              # React dashboard (50+ features)
+├── frontend/
 │   ├── src/
-│   │   ├── components/    # Dashboard, Map, Charts, Alerts
-│   │   └── pages/         # Home, District View, Compare
+│   │   ├── components/
+│   │   └── pages/
 │   └── public/
 ├── src/
-│   ├── api/               # FastAPI backend
-│   │   ├── main.py        # API entry point
-│   │   ├── predict_endpoint.py  # Sanket — Prediction engine
-│   │   └── marg_endpoint.py     # Marg — Recommendation engine
-│   ├── models/            # ML model training scripts
-│   ├── data_collection/   # Data ingestion pipeline
-│   └── database_setup.py  # Schema initialization
+│   ├── api/
+│   │   ├── main.py
+│   │   ├── predict_endpoint.py
+│   │   └── marg_endpoint.py
+│   ├── models/
+│   ├── data_collection/
+│   └── database_setup.py
 ├── data/
-│   ├── raw/               # ICMR source data
-│   ├── processed/         # Cleaned datasets
-│   └── resistnet.db       # SQLite database
-├── dashboard/             # Alternative dashboard
-├── tests/                 # pytest test suite (14 tests)
+│   ├── raw/
+│   ├── processed/
+│   └── resistnet.db
+├── dashboard/
+├── tests/
 ├── Dockerfile
 ├── requirements.txt
 └── README.md
-
-text
 
 ---
 
@@ -121,7 +119,6 @@ ICMR Data + Pharma Sales
         │
         ▼
    Dashboard + SMS (8 languages)
-
 ---
 
 ## 🏆 Achievements
