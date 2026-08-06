@@ -73,51 +73,44 @@ ResistNet predicts antibiotic resistance outbreaks **48 hours before they happen
 
 ---
 
-resistnet/
-    frontend/
-        src/
-            components/
-            pages/
-        public/
-    src/
-        api/
-            main.py
-            predict_endpoint.py
-            marg_endpoint.py
-        models/
-        data_collection/
-        database_setup.py
-    data/
-        raw/
-        processed/
-        resistnet.db
-    dashboard/
-    tests/
-    Dockerfile
-    requirements.txt
-    README.md
+| 📁 Project Structure | |
+|----------------------|---------------------|
+| **resistnet/** | Root directory |
+| ├── **frontend/** | React dashboard (50+ features) |
+| │   ├── **src/** | Source code |
+| │   │   ├── **components/** | Dashboard, Map, Charts, Alerts |
+| │   │   └── **pages/** | Home, District View, Compare |
+| │   └── **public/** | Static assets |
+| ├── **src/** | Backend source |
+| │   ├── **api/** | FastAPI backend |
+| │   │   ├── **main.py** | API entry point |
+| │   │   ├── **predict_endpoint.py** | Sanket — Prediction engine |
+| │   │   └── **marg_endpoint.py** | Marg — Recommendation engine |
+| │   ├── **models/** | ML model training scripts |
+| │   ├── **data_collection/** | Data ingestion pipeline |
+| │   └── **database_setup.py** | Schema initialization |
+| ├── **data/** | Data storage |
+| │   ├── **raw/** | ICMR source data |
+| │   ├── **processed/** | Cleaned datasets |
+| │   └── **resistnet.db** | SQLite database |
+| ├── **dashboard/** | Alternative dashboard |
+| ├── **tests/** | pytest test suite (14 tests) |
+| ├── **Dockerfile** | Container configuration |
+| ├── **requirements.txt** | Python dependencies |
+| └── **README.md** | Project documentation |
 ---
 
-🔄 System Flow
+##🔄 System Flow
 
-ICMR Data + Pharma Sales
-        │
-        ▼
-   [Sanket] — Predict resistance (48-hr advance)
-        │
-        ▼
-   [Marg] — Recommend alternative antibiotics
-        │
-        ▼
-   [Sahay] — Alert hospitals + guide pharmacy stock
-        │
-        ▼
-   [Smriti] — Learn from history, prevent recurrence
-        │
-        ▼
-   Dashboard + SMS (8 languages)
+| Step | Module | Function |
+|------|--------|----------|
+| 1 | ICMR Data + Pharma Sales | Input data sources feed into the system |
+| 2 | Sanket | Predict resistance risk 48 hours ahead per district-pathogen pair |
+| 3 | Marg | Recommend alternative antibiotics with efficacy scores |
+| 4 | Sahay | Alert hospitals, guide pharmacy stock, send SMS in 8 languages |
+| 5 | Smriti | Compare with historical outbreaks, suggest prevention strategies |
+| 6 | Dashboard + SMS | Final output delivered to stakeholders |
 ---
-
 ## 🏆 Achievements
 
 - ✅ Submitted to **Eureka! 2026, E-Cell IIT Bombay** (Under Review)
