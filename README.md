@@ -73,32 +73,29 @@ ResistNet predicts antibiotic resistance outbreaks **48 hours before they happen
 
 ---
 
-📁 Project Structure
-
 resistnet/
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   └── pages/
-│   └── public/
-├── src/
-│   ├── api/
-│   │   ├── main.py
-│   │   ├── predict_endpoint.py
-│   │   └── marg_endpoint.py
-│   ├── models/
-│   ├── data_collection/
-│   └── database_setup.py
-├── data/
-│   ├── raw/
-│   ├── processed/
-│   └── resistnet.db
-├── dashboard/
-├── tests/
-├── Dockerfile
-├── requirements.txt
-└── README.md
-
+    frontend/
+        src/
+            components/
+            pages/
+        public/
+    src/
+        api/
+            main.py
+            predict_endpoint.py
+            marg_endpoint.py
+        models/
+        data_collection/
+        database_setup.py
+    data/
+        raw/
+        processed/
+        resistnet.db
+    dashboard/
+    tests/
+    Dockerfile
+    requirements.txt
+    README.md
 ---
 
 🔄 System Flow
