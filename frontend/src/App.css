@@ -1509,3 +1509,146 @@ body.light-theme .weekly-item strong {
 .print-report-btn:hover {
   background: #6366f1;
 }
+.module-panel {
+  background: #1e293b;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #334155;
+}
+
+.module-buttons {
+  display: flex;
+  gap: 12px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+.module-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: 0.2s;
+  color: white;
+}
+
+.module-btn.marg { background: #8b5cf6; }
+.module-btn.sahay { background: #f97316; }
+.module-btn.all { background: #ef4444; }
+
+.module-btn:hover { transform: translateY(-2px); }
+.module-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.loading-text {
+  text-align: center;
+  color: #eab308;
+  font-size: 0.9rem;
+}
+
+.module-result {
+  margin-top: 15px;
+  padding: 15px;
+  background: #0f172a;
+  border-radius: 8px;
+}
+
+.alt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.alt-card {
+  padding: 12px;
+  background: #1e293b;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.alt-card.best {
+  border: 1px solid #22c55e;
+  background: rgba(34, 197, 94, 0.05);
+}
+
+.alt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.alt-badge {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: #334155;
+  color: #94a3b8;
+}
+
+.alt-details {
+  display: flex;
+  gap: 15px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+
+.sahay-result {
+  margin-top: 15px;
+  padding: 12px;
+  background: rgba(249, 115, 22, 0.1);
+  border-radius: 8px;
+  border: 1px solid #f97316;
+}
+
+.disclaimer {
+  font-size: 0.7rem;
+  color: #64748b;
+  text-align: center;
+  margin-top: 15px;
+}
+body.light-theme .module-panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+}
+
+body.light-theme .module-panel h2 {
+  color: #1e293b;
+}
+
+body.light-theme .module-result {
+  background: #f8fafc;
+}
+
+body.light-theme .alt-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+body.light-theme .alt-details {
+  color: #64748b;
+}
+body.light-theme .module-panel strong,
+body.light-theme .module-panel h4,
+body.light-theme .alt-header strong {
+  color: #1e293b;
+}
+
+body.light-theme .alt-card.best {
+  background: rgba(34, 197, 94, 0.05);
+  border: 1px solid #22c55e;
+}
+
+body.light-theme .alt-badge {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+body.light-theme .module-panel p {
+  color: #334155;
+}
+.module-btn.smriti { background: #8b5cf6; }

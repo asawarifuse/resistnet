@@ -36,6 +36,7 @@ import WeeklySummary from './WeeklySummary';
 import Feedback from './Feedback';
 import Changelog from './Changelog';
 import PrintReport from './PrintReport';
+import ModulePanel from './ModulePanel';
 
 
 function App() {
@@ -187,11 +188,9 @@ function App() {
           </div>
 
           <AlertsPage />
-
           <CompareDistricts />
 
           <div className="section">
-            
             <h2>⚠️ Top High-Risk Districts <InfoTip text="Districts with highest average antibiotic resistance. Click any district to see detailed predictions." /></h2>
             {highRisk.length === 0 ? (
               <SkeletonLoader count={4} />
@@ -204,19 +203,25 @@ function App() {
                       <strong>{d.district_name}</strong>
                       <small>{d.state_name}</small>
                     </div>
-                                    <span className="rate" style={{ 
-                  background: d.avg_resistance > 40 ? 'rgba(239,68,68,0.2)' : 
-                              d.avg_resistance > 38 ? 'rgba(249,115,22,0.2)' : 'rgba(34,197,94,0.2)',
-                  color: d.avg_resistance > 40 ? '#ef4444' : 
-                         d.avg_resistance > 38 ? '#f97316' : '#22c55e'
-                }}>
-                  {d.avg_resistance.toFixed(1)}%
-                </span>
+                    <span className="rate" style={{ 
+                      background: d.avg_resistance > 40 ? 'rgba(239,68,68,0.2)' : 
+                                  d.avg_resistance > 38 ? 'rgba(249,115,22,0.2)' : 'rgba(34,197,94,0.2)',
+                      color: d.avg_resistance > 40 ? '#ef4444' : 
+                             d.avg_resistance > 38 ? '#f97316' : '#22c55e'
+                    }}>
+                      {d.avg_resistance.toFixed(1)}%
+                    </span>
                   </div>
                 ))}
               </div>
             )}
           </div>
+
+          {selectedDistrict && districtData && (
+            <div className="section">
+              <ModulePanel district={selectedDistrict} districtData={districtData} />
+            </div>
+          )}
                       <div className="section">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
           <h2 style={{ margin: 0 }}>🏆 District Resistance Leaderboard <InfoTip text="All 114 districts ranked by average resistance. Click any row for details." /></h2>
