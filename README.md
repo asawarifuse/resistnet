@@ -74,26 +74,27 @@ ResistNet predicts antibiotic resistance outbreaks **48 hours before they happen
 ---
 
 ## 📁 Project Structure
+
 resistnet/
-├── frontend/ # React dashboard (50+ features)
-│ ├── src/
-│ │ ├── components/ # Dashboard, Map, Charts, Alerts
-│ │ └── pages/ # Home, District View, Compare
-│ └── public/
+├── frontend/              # React dashboard (50+ features)
+│   ├── src/
+│   │   ├── components/    # Dashboard, Map, Charts, Alerts
+│   │   └── pages/         # Home, District View, Compare
+│   └── public/
 ├── src/
-│ ├── api/ # FastAPI backend
-│ │ ├── main.py # API entry point
-│ │ ├── predict_endpoint.py # Sanket — Prediction engine
-│ │ └── marg_endpoint.py # Marg — Recommendation engine
-│ ├── models/ # ML model training scripts
-│ ├── data_collection/ # Data ingestion pipeline
-│ └── database_setup.py # Schema initialization
+│   ├── api/               # FastAPI backend
+│   │   ├── main.py        # API entry point
+│   │   ├── predict_endpoint.py  # Sanket — Prediction engine
+│   │   └── marg_endpoint.py     # Marg — Recommendation engine
+│   ├── models/            # ML model training scripts
+│   ├── data_collection/   # Data ingestion pipeline
+│   └── database_setup.py  # Schema initialization
 ├── data/
-│ ├── raw/ # ICMR source data
-│ ├── processed/ # Cleaned datasets
-│ └── resistnet.db # SQLite database
-├── dashboard/ # Alternative dashboard
-├── tests/ # pytest test suite (14 tests)
+│   ├── raw/               # ICMR source data
+│   ├── processed/         # Cleaned datasets
+│   └── resistnet.db       # SQLite database
+├── dashboard/             # Alternative dashboard
+├── tests/                 # pytest test suite (14 tests)
 ├── Dockerfile
 ├── requirements.txt
 └── README.md
@@ -102,25 +103,24 @@ text
 
 ---
 
-## 🔄 System Flow
-ICMR Data + Pharma Sales
-│
-▼
-[Sanket] — Predict resistance (48-hr advance)
-│
-▼
-[Marg] — Recommend alternative antibiotics
-│
-▼
-[Sahay] — Alert hospitals + guide pharmacy stock
-│
-▼
-[Smriti] — Learn from history, prevent recurrence
-│
-▼
-Dashboard + SMS (8 languages)
+🔄 System Flow
 
-text
+ICMR Data + Pharma Sales
+        │
+        ▼
+   [Sanket] — Predict resistance (48-hr advance)
+        │
+        ▼
+   [Marg] — Recommend alternative antibiotics
+        │
+        ▼
+   [Sahay] — Alert hospitals + guide pharmacy stock
+        │
+        ▼
+   [Smriti] — Learn from history, prevent recurrence
+        │
+        ▼
+   Dashboard + SMS (8 languages)
 
 ---
 
