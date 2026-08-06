@@ -3,23 +3,28 @@ ResistNet - FastAPI Backend
 Serves predictions, alerts, and district data via REST API.
 """
 
+import sys
+sys.path.append('.')
+
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import sqlite3
 import pandas as pd
 import os
-import sys
 from datetime import datetime
 
-sys.path.append('.')
 from src.api.predict_endpoint import predict_for_district
-
+from src.api.marg_endpoint import router as marg_router
+from src.api.sahay_endpoint import router as sahay_router
+from src.api.smriti_endpoint import router as smriti_router
 app = FastAPI(
     title="ResistNet API",
     description="AMR Early Warning System for Indian Districts",
     version="1.0.0"
 )
-
+app.include_router(marg_router)
+app.include_router(sahay_router)
+app.include_router(smriti_router)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
