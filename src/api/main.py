@@ -13,10 +13,15 @@ import pandas as pd
 import os
 from datetime import datetime
 
-from src.api.predict_endpoint import predict_for_district
+from src.api.predict_endpoint import predict_for_district, get_confidence_and_quality
 from src.api.marg_endpoint import router as marg_router
 from src.api.sahay_endpoint import router as sahay_router
 from src.api.smriti_endpoint import router as smriti_router
+from src.api.simulator_endpoint import router as simulator_router
+from src.api.emerging_endpoint import router as emerging_router
+from src.api.response_endpoint import router as response_router
+from src.api.propagation_endpoint import router as propagation_router
+
 app = FastAPI(
     title="ResistNet API",
     description="AMR Early Warning System for Indian Districts",
@@ -25,6 +30,11 @@ app = FastAPI(
 app.include_router(marg_router)
 app.include_router(sahay_router)
 app.include_router(smriti_router)
+app.include_router(simulator_router)
+app.include_router(emerging_router)
+app.include_router(response_router)
+app.include_router(propagation_router)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -288,6 +298,14 @@ def explain_district(district: str):
         
     except HTTPException:
         raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    
+@app.get("/api/confidence/{district}")
+def get_confidence(district: str):
+    """Get confidence and data quality for a district."""
+    try:
+        return get_confidence_and_quality(district)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     

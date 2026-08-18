@@ -37,7 +37,13 @@ import Feedback from './Feedback';
 import Changelog from './Changelog';
 import PrintReport from './PrintReport';
 import ModulePanel from './ModulePanel';
-
+import PolicySimulator from './PolicySimulator';
+import EmergingHotspots from './EmergingHotspots';
+import ResponsePlaybook from './ResponsePlaybook';
+import PropagationNetwork from './PropagationNetwork';
+import DataProvenance from './DataProvenance';
+import LiveDemo from './LiveDemo';
+import ActionCards from './ActionCards';
 
 function App() {
   const [stats, setStats] = useState(null);
@@ -119,259 +125,177 @@ function App() {
     }
   };
 
-  return (
+    return (
     <ErrorBoundary>
       <>
         <PageTitle redAlerts={stats?.red_alerts} />
-                <AutoRefresh onRefresh={() => { fetchStats(); fetchHighRisk(); }} />
         <div className="App">
+          
+          {/* HEADER */}
           <header className="header">
-                                    <h1>🦠 ResistNet <NotificationBadge redAlerts={stats?.red_alerts} /> <SystemStatus /> <PulseDot /></h1>
-            <p>AMR Early Warning System — India</p>
+            <h1>🦠 ResistNet <NotificationBadge redAlerts={stats?.red_alerts} /> <SystemStatus /></h1>
+            <p>AI-Powered AMR Early Warning & Response</p>
             <LiveClock />
-                        
-                        <SearchDistrict onSelect={fetchDistrict} />
+            <SearchDistrict onSelect={fetchDistrict} />
             <VoiceSearch onResult={(text) => fetchDistrict(text)} />
-            <button className="refresh-btn" onClick={() => { fetchStats(); fetchHighRisk(); }}>
-              🔄 Refresh Data
-              
-            </button>
-            <ShareBtn selectedDistrict={selectedDistrict} />
-                        <button className="changelog-btn" onClick={() => setShowChangelog(true)}>📝</button>
-                        <ScreenshotBtn />
-                                    <DownloadAll />
-                                    <PrintReport stats={stats} allDistricts={allDistricts} />
-            <ThemeToggle />
+            <div className="header-actions">
+              <button className="refresh-btn" onClick={() => { fetchStats(); fetchHighRisk(); }}>🔄 Refresh</button>
+              <ScreenshotBtn />
+              <DownloadAll />
+              <ShareBtn selectedDistrict={selectedDistrict} />
+              <PrintReport stats={stats} allDistricts={allDistricts} />
+              <ThemeToggle />
+            </div>
           </header>
-                    <QuickStats stats={stats} />
 
-          {stats && (
-            <div className="stats-row">
-              <Tooltip text="Total districts monitored across India">
-                <div className="stat-card">
-                  <h3><AnimatedCounter value={stats.total_districts} /></h3>
-                  <p>Districts</p>
-                </div>
-              </Tooltip>
-              <Tooltip text="Average antibiotic resistance across all pathogens">
-                <div className="stat-card">
-                  <h3><AnimatedCounter value={parseFloat(stats.average_resistance)} />%</h3>
-                  <p>Avg Resistance</p>
-                </div>
-              </Tooltip>
-              <Tooltip text="Critical alerts: Resistance above 70%">
-                <div className="stat-card red">
-                  <h3><AnimatedCounter value={stats.red_alerts} /></h3>
-                  <p>🔴 RED Alerts</p>
-                </div>
-              </Tooltip>
-              <Tooltip text="Warning alerts: Resistance between 50-70%">
-                <div className="stat-card orange">
-                  <h3><AnimatedCounter value={stats.orange_alerts} /></h3>
-                  <p>🟠 ORANGE Alerts</p>
-                </div>
-              </Tooltip>
-            </div>
-          )}
-          <LivesSaved redAlerts={stats?.red_alerts} />
-                    <WeeklySummary stats={stats} />
-                    <RecentAlerts redAlerts={stats?.red_alerts} orangeAlerts={stats?.orange_alerts} />
-
-          {lastUpdated && (
-            <div className="last-updated">
-              🕐 Last updated: {lastUpdated}
-            </div>
-          )}
-
-          <div className="section">
-            <DemoMode />
+          {/* QUICK STATS BAR */}
+          <QuickStats stats={stats} />
+                    <div className="section">
+            <LiveDemo />
+          </div>
+                    <div className="section">
+            <ActionCards 
+              onPredict={() => fetchDistrict("Mumbai")}
+              onExplain={() => fetchDistrict("Bangalore")}
+              onSimulate={() => fetchDistrict("Chennai")}
+              onRespond={() => fetchDistrict("Kolkata")}
+            />
           </div>
 
-          <AlertsPage />
-          <CompareDistricts />
-
-          <div className="section">
-            <h2>⚠️ Top High-Risk Districts <InfoTip text="Districts with highest average antibiotic resistance. Click any district to see detailed predictions." /></h2>
-            {highRisk.length === 0 ? (
-              <SkeletonLoader count={4} />
-            ) : (
-              <div className="district-grid">
-                {highRisk.map((d, i) => (
-                  <div key={i} className="district-card" onClick={() => fetchDistrict(d.district_name)}>
-                    <span className="rank">#{i + 1}</span>
-                    <div>
-                      <strong>{d.district_name}</strong>
-                      <small>{d.state_name}</small>
-                    </div>
-                    <span className="rate" style={{ 
-                      background: d.avg_resistance > 40 ? 'rgba(239,68,68,0.2)' : 
-                                  d.avg_resistance > 38 ? 'rgba(249,115,22,0.2)' : 'rgba(34,197,94,0.2)',
-                      color: d.avg_resistance > 40 ? '#ef4444' : 
-                             d.avg_resistance > 38 ? '#f97316' : '#22c55e'
-                    }}>
-                      {d.avg_resistance.toFixed(1)}%
-                    </span>
-                  </div>
-                ))}
+          {/* LIVE COMMAND CENTER */}
+          <div className="command-center">
+            <div className="cc-title">
+              <h2>🖥️ Live AMR Command Center</h2>
+              <span className="cc-live">● LIVE</span>
+            </div>
+            
+            {/* Stats Row */}
+            {stats && (
+              <div className="stats-row">
+                <Tooltip text="Total districts monitored"><div className="stat-card"><h3><AnimatedCounter value={stats.total_districts} /></h3><p>Districts</p></div></Tooltip>
+                <Tooltip text="Average resistance"><div className="stat-card"><h3><AnimatedCounter value={parseFloat(stats.average_resistance)} />%</h3><p>Avg Resistance</p></div></Tooltip>
+                <Tooltip text="Critical alerts"><div className="stat-card red"><h3><AnimatedCounter value={stats.red_alerts} /></h3><p>🔴 RED</p></div></Tooltip>
+                <Tooltip text="Warning alerts"><div className="stat-card orange"><h3><AnimatedCounter value={stats.orange_alerts} /></h3><p>🟠 ORANGE</p></div></Tooltip>
               </div>
             )}
+            {lastUpdated && <div className="last-updated">🕐 Last updated: {lastUpdated}</div>}
+            <LivesSaved redAlerts={stats?.red_alerts} />
+            <WeeklySummary stats={stats} />
           </div>
 
-          {selectedDistrict && districtData && (
-            <div className="section">
-              <ModulePanel district={selectedDistrict} districtData={districtData} />
-            </div>
-          )}
-                      <div className="section">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-          <h2 style={{ margin: 0 }}>🏆 District Resistance Leaderboard <InfoTip text="All 114 districts ranked by average resistance. Click any row for details." /></h2>
-          <button 
-            className="export-lb-btn"
-            onClick={() => {
-              let csv = 'Rank,District,State,Avg Resistance,Risk Level\n';
-              allDistricts.forEach((d, i) => {
-                csv += `${i+1},"${d.district_name}","${d.state_name}",${d.avg_resistance.toFixed(1)}%,${d.avg_resistance > 40 ? 'High' : 'Medium'}\n`;
-              });
-              const blob = new Blob([csv], { type: 'text/csv' });
-              const url = window.URL.createObjectURL(blob);
-              const a = document.createElement('a');
-              a.href = url;
-              a.download = 'resistnet_leaderboard.csv';
-              a.click();
-            }}
-          >
-            📥 Export CSV
-          </button>
-        </div>
-        <div className="leaderboard-table-container">
-          <table className="leaderboard-table">
-            <thead>
-              <tr>
-                <th>Rank</th>
-                <th>District</th>
-                <th>State</th>
-                <th>Avg Resistance</th>
-                <th>Risk Level</th>
-              </tr>
-            </thead>
-            <tbody>
-              {allDistricts.map((d, i) => (
-                <tr key={i} onClick={() => fetchDistrict(d.district_name)} className="leaderboard-row">
-                  <td><span className="lb-rank">#{i + 1}</span></td>
-                  <td><strong>{d.district_name}</strong></td>
-                  <td>{d.state_name}</td>
-                  <td className={d.avg_resistance > 40 ? 'text-red' : d.avg_resistance > 38 ? 'text-orange' : 'text-green'}>
-                    {d.avg_resistance.toFixed(1)}%
-                  </td>
-                  <td>
-                    <span className={`risk-badge ${d.avg_resistance > 40 ? 'high' : 'medium'}`}>
-                      {d.avg_resistance > 40 ? '🔴 High' : '🟠 Medium'}
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-        
-
-
-          {districtData && (
-            <div className="section">
-              <h2>📍 {selectedDistrict} — Predictions <InfoTip text="Shows current vs predicted resistance for top 5 pathogen-antibiotic combinations in this district." /></h2>
-              <p>🔴 {districtData.red_alerts} RED | 🟠 {districtData.orange_alerts} ORANGE</p>
-              <div className="predictions-table">
-                <table>
-                                    <thead>
-                    <tr>
-                      <th>Pathogen</th>
-                      <th>Antibiotic</th>
-                      <th>Current</th>
-                      <th>Predicted</th>
-                      <th>Confidence</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {districtData.predictions.slice(0, 5).map((p, i) => (
-                      <tr key={i} className={p.severity === 'RED' ? 'row-red' : 'row-orange'}>
-                        <td>{p.pathogen}</td>
-                        <td>{p.antibiotic}</td>
-                        <td>{p.current_resistance}%</td>
-                        <td>{p.predicted_resistance}%</td>
-                        <td>{Math.floor(Math.random() * 10 + 89)}%</td>
-                        <td>{p.severity === 'RED' ? '🔴' : '🟠'}</td>
-                      </tr>
+          {/* TWO COLUMN LAYOUT */}
+          <div className="dashboard-grid">
+            
+            {/* LEFT COLUMN */}
+            <div className="left-col">
+              <div className="section">
+                <h2>⚠️ Top High-Risk Districts</h2>
+                {highRisk.length === 0 ? <SkeletonLoader count={4} /> : (
+                  <div className="district-grid">
+                    {highRisk.map((d, i) => (
+                      <div key={i} className="district-card" onClick={() => fetchDistrict(d.district_name)}>
+                        <span className="rank">#{i + 1}</span>
+                        <div><strong>{d.district_name}</strong><small>{d.state_name}</small></div>
+                        <span className="rate" style={{ background: d.avg_resistance > 40 ? 'rgba(239,68,68,0.2)' : d.avg_resistance > 38 ? 'rgba(249,115,22,0.2)' : 'rgba(34,197,94,0.2)', color: d.avg_resistance > 40 ? '#ef4444' : d.avg_resistance > 38 ? '#f97316' : '#22c55e' }}>{d.avg_resistance.toFixed(1)}%</span>
+                      </div>
                     ))}
-                  </tbody>
-                </table>
+                  </div>
+                )}
               </div>
-              <ExportReport districtData={districtData} selectedDistrict={selectedDistrict} />
+
+              <div className="section"><EmergingHotspots /></div>
+              <div className="section"><CompareDistricts /></div>
+              <div className="section"><DemoMode /></div>
+              <AlertsPage />
+            </div>
+
+            {/* RIGHT COLUMN */}
+            <div className="right-col">
+              <div className="section">
+                <h2>🗺️ India District Risk Map</h2>
+                <MapView highRiskData={highRisk} onDistrictClick={fetchDistrict} />
+              </div>
               
-            </div>
-          )}
+              {selectedDistrict && districtData && (
+                <>
+                  <div className="section">
+                    <h2>📍 {selectedDistrict} — Predictions</h2>
+                    <p>🔴 {districtData.red_alerts} RED | 🟠 {districtData.orange_alerts} ORANGE</p>
+                    <div className="predictions-table">
+                      <table>
+                        <thead><tr><th>Pathogen</th><th>Antibiotic</th><th>Current</th><th>Predicted</th><th>Status</th></tr></thead>
+                        <tbody>
+                          {districtData.predictions.slice(0, 5).map((p, i) => (
+                            <tr key={i} className={p.severity === 'RED' ? 'row-red' : 'row-orange'}>
+                              <td>{p.pathogen}</td><td>{p.antibiotic}</td><td>{p.current_resistance}%</td><td>{p.predicted_resistance}%</td><td>{p.severity === 'RED' ? '🔴' : '🟠'}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                    <ExportReport districtData={districtData} selectedDistrict={selectedDistrict} />
+                  </div>
 
-          {districtData && (
-            <div className="section">
-              <h2>📊 Analytics for {selectedDistrict} <InfoTip text="Visual comparison of resistance across pathogens, severity distribution, and trend over time." /></h2>
-              <div className="charts-grid">
-                <ResistanceBarChart districtData={districtData} />
-                <SeverityPieChart districtData={districtData} />
-                <PathogenBarChart districtData={districtData} />
-                <TrendLineChart districtData={districtData} />
-              </div>
+                  <div className="section"><ModulePanel district={selectedDistrict} districtData={districtData} /></div>
+                  <div className="section"><PolicySimulator district={selectedDistrict} districtData={districtData} /></div>
+                  <div className="section"><ResponsePlaybook district={selectedDistrict} districtData={districtData} /></div>
+                  <div className="section"><PropagationNetwork district={selectedDistrict} /></div>
+                  
+                  <div className="section">
+                    <h2>📊 Analytics for {selectedDistrict}</h2>
+                    <div className="charts-grid">
+                      <ResistanceBarChart districtData={districtData} />
+                      <SeverityPieChart districtData={districtData} />
+                      <PathogenBarChart districtData={districtData} />
+                      <TrendLineChart districtData={districtData} />
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
-          )}
-
-          <div className="section">
-            <h2>🗺️ India District Risk Map <InfoTip text="Circle size and color show resistance level. Red = critical (>70%), Green = safe (<30%). Click any circle." /></h2>
-            <MapView highRiskData={highRisk} onDistrictClick={fetchDistrict} />
           </div>
-                {districtData && districtData.predictions && districtData.predictions[0] && (
-        <div className="section">
-          <h2>📊 Overall Resistance Level — {selectedDistrict}</h2>
-          <ResistanceBar value={districtData.predictions[0].predicted_resistance} />
-          <p style={{ textAlign: 'center', color: '#94a3b8', marginTop: '8px' }}>
-            Based on top threat: {districtData.predictions[0].pathogen}
-          </p>
-        </div>
-      )}
-      <div className="section">
-        <h2>💊 Most Monitored Antibiotics <InfoTip text="Antibiotics with the highest number of predictions across all districts." /></h2>
-        <div className="antibiotics-list">
-          {[
-            { name: 'Ceftriaxone', class: 'Cephalosporin', alerts: 1420, color: '#ef4444' },
-            { name: 'Ciprofloxacin', class: 'Fluoroquinolone', alerts: 1180, color: '#f97316' },
-            { name: 'Gentamicin', class: 'Aminoglycoside', alerts: 950, color: '#eab308' },
-            { name: 'Amikacin', class: 'Aminoglycoside', alerts: 720, color: '#3b82f6' },
-            { name: 'Imipenem', class: 'Carbapenem', alerts: 680, color: '#22c55e' },
-          ].map((ab, i) => (
-            <div key={i} className="antibiotic-card">
-              <div className="ab-rank">#{i + 1}</div>
-              <div className="ab-info">
-                <strong>{ab.name}</strong>
-                <small>{ab.class}</small>
-              </div>
-              <div className="ab-alerts" style={{ color: ab.color }}>
-                {ab.alerts} alerts
-              </div>
+
+          {/* LEADERBOARD */}
+          <div className="section">
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+              <h2 style={{ margin: 0 }}>🏆 District Resistance Leaderboard</h2>
+              <button className="export-lb-btn" onClick={() => {
+                let csv = 'Rank,District,State,Avg Resistance,Risk Level\n';
+                allDistricts.forEach((d, i) => { csv += `${i+1},"${d.district_name}","${d.state_name}",${d.avg_resistance.toFixed(1)}%,${d.avg_resistance > 40 ? 'High' : 'Medium'}\n`; });
+                const blob = new Blob([csv], { type: 'text/csv' }); const url = window.URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'resistnet_leaderboard.csv'; a.click();
+              }}>📥 Export CSV</button>
             </div>
-          ))}
-        </div>
-      </div>
+            <div className="leaderboard-table-container">
+              <table className="leaderboard-table">
+                <thead><tr><th>Rank</th><th>District</th><th>State</th><th>Avg Resistance</th><th>Risk Level</th></tr></thead>
+                <tbody>
+                  {allDistricts.map((d, i) => (
+                    <tr key={i} onClick={() => fetchDistrict(d.district_name)} className="leaderboard-row">
+                      <td><span className="lb-rank">#{i + 1}</span></td>
+                      <td><strong>{d.district_name}</strong></td>
+                      <td>{d.state_name}</td>
+                      <td className={d.avg_resistance > 40 ? 'text-red' : 'text-orange'}>{d.avg_resistance.toFixed(1)}%</td>
+                      <td><span className={`risk-badge ${d.avg_resistance > 40 ? 'high' : 'medium'}`}>{d.avg_resistance > 40 ? '🔴 High' : '🟠 Medium'}</span></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           <DataSource />
+          <DataProvenance />
           <FooterStats stats={stats} />
-          <BackToTop />
           <Feedback />
+          <BackToTop />
+          <ShortcutsModal show={showShortcuts} onClose={() => setShowShortcuts(false)} />
+          <Changelog show={showChangelog} onClose={() => setShowChangelog(false)} />
 
           <footer className="footer">
             <p>ResistNet v1.0 | Built for India's fight against superbugs</p>
           </footer>
         </div>
-        <ShortcutsModal show={showShortcuts} onClose={() => setShowShortcuts(false)} />
       </>
-              <Changelog show={showChangelog} onClose={() => setShowChangelog(false)} />
     </ErrorBoundary>
   );
 }

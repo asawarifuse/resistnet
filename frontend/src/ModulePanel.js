@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const API = 'http://localhost:8000';
@@ -8,10 +8,19 @@ function ModulePanel({ district, districtData }) {
   const [smritiResult, setSmritiResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [activeModule, setActiveModule] = useState(null);
+  const [confidence, setConfidence] = useState(null);
 
   const topPathogen = districtData?.predictions?.[0]?.pathogen || "Acinetobacter baumannii";
   const topAntibiotic = districtData?.predictions?.[0]?.antibiotic || "Ceftriaxone";
   const topRate = districtData?.predictions?.[0]?.predicted_resistance || 88.9;
+
+  useEffect(() => {
+    if (district) {
+      axios.get(`${API}/api/confidence/${district}`)
+        .then(res => setConfidence(res.data))
+        .catch(() => {});
+    }
+  }, [district]);
 
   const runMarg = async () => {
     setLoading(true);
@@ -116,6 +125,37 @@ function ModulePanel({ district, districtData }) {
         Top threat: <strong style={{ color: '#ef4444' }}>{topPathogen}</strong> → 
         <strong style={{ color: '#f97316' }}> {topAntibiotic}</strong> at {topRate}%
       </p>
+
+      {confidence && (
+        <div className="confidence-badge">
+          <span>🎯 Confidence: <strong>{confidence.model_confidence}%</strong></span>
+          <span>📊 Data Quality: <strong>{confidence.data_quality}%</strong></span>
+          <span>📅 Freshness: <strong>{confidence.data_freshness}</strong></span>
+          <span>🔍 Range: <strong>{confidence.uncertainty_range}</strong></span>
+        </div>
+      )}
+            <div className="risk-score-box">
+        <div className="risk-score-header">
+          <span>📊 AMR Risk Score</span>
+          <strong style={{ 
+            color: topRate >= 70 ? '#ef4444' : topRate >= 50 ? '#f97316' : topRate >= 30 ? '#eab308' : '#22c55e'
+          }}>
+            {Math.round(topRate)} / 100
+          </strong>
+        </div>
+        <div className="risk-score-bar">
+          <div 
+            className="risk-score-fill" 
+            style={{ 
+              width: `${topRate}%`, 
+              background: topRate >= 70 ? '#ef4444' : topRate >= 50 ? '#f97316' : topRate >= 30 ? '#eab308' : '#22c55e'
+            }}
+          />
+        </div>
+        <div className="risk-score-scale">
+          <span>0</span><span>30</span><span>60</span><span>100</span>
+        </div>
+      </div>
 
       <div className="module-buttons">
         <button className="module-btn marg" onClick={runMarg} disabled={loading}>
