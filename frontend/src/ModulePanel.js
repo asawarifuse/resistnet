@@ -7,7 +7,6 @@ function ModulePanel({ district, districtData }) {
   const [margResult, setMargResult] = useState(null);
   const [smritiResult, setSmritiResult] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [activeModule, setActiveModule] = useState(null);
   const [confidence, setConfidence] = useState(null);
 
   const topPathogen = districtData?.predictions?.[0]?.pathogen || "Acinetobacter baumannii";
@@ -24,7 +23,6 @@ function ModulePanel({ district, districtData }) {
 
   const runMarg = async () => {
     setLoading(true);
-    setActiveModule('marg');
     try {
       const res = await axios.get(`${API}/api/marg/recommend`, {
         params: {
@@ -42,7 +40,6 @@ function ModulePanel({ district, districtData }) {
 
   const runSahay = async () => {
     setLoading(true);
-    setActiveModule('sahay');
     try {
       const state = districtData?.state || "Maharashtra";
       const res = await axios.get(`${API}/api/sahay/alert`, {
@@ -65,7 +62,6 @@ function ModulePanel({ district, districtData }) {
 
   const runSmriti = async () => {
     setLoading(true);
-    setActiveModule('smriti');
     try {
       const res = await axios.get(`${API}/api/smriti/compare`, {
         params: {
@@ -84,7 +80,6 @@ function ModulePanel({ district, districtData }) {
 
   const runAll = async () => {
     setLoading(true);
-    setActiveModule('all');
     try {
       const state = districtData?.state || "Maharashtra";
       const [margRes, sahayRes, smritiRes] = await Promise.all([
@@ -134,7 +129,8 @@ function ModulePanel({ district, districtData }) {
           <span>🔍 Range: <strong>{confidence.uncertainty_range}</strong></span>
         </div>
       )}
-            <div className="risk-score-box">
+
+      <div className="risk-score-box">
         <div className="risk-score-header">
           <span>📊 AMR Risk Score</span>
           <strong style={{ 
