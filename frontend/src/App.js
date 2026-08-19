@@ -21,7 +21,6 @@ import ShortcutsModal from './ShortcutsModal';
 import Changelog from './Changelog';
 import QuickStats from './QuickStats';
 import WeeklySummary from './WeeklySummary';
-import LivesSaved from './LivesSaved';
 import VoiceSearch from './VoiceSearch';
 import ScreenshotBtn from './ScreenshotBtn';
 import DownloadAll from './DownloadAll';
@@ -118,7 +117,6 @@ function App() {
         <PageTitle redAlerts={stats?.red_alerts} />
         <div className="App">
 
-          {/* HEADER */}
           <header className="header">
             <h1>🦠 ResistNet <NotificationBadge redAlerts={stats?.red_alerts} /> <SystemStatus /></h1>
             <p>AI-Powered AMR Early Warning & Response</p>
@@ -136,10 +134,8 @@ function App() {
             </div>
           </header>
 
-          {/* QUICK STATS BAR */}
           <QuickStats stats={stats} />
 
-          {/* COMMAND CENTER */}
           <div className="command-center">
             <div className="cc-title">
               <h2>🖥️ Live AMR Command Center</h2>
@@ -150,20 +146,20 @@ function App() {
               <div className="stats-row">
                 <Tooltip text="Total districts monitored"><div className="stat-card"><h3><AnimatedCounter value={stats.total_districts} /></h3><p>Districts</p></div></Tooltip>
                 <Tooltip text="Average resistance"><div className="stat-card"><h3><AnimatedCounter value={parseFloat(stats.average_resistance)} />%</h3><p>Avg Resistance</p></div></Tooltip>
-                <Tooltip text="Critical alerts"><div className="stat-card red"><h3><AnimatedCounter value={stats.red_alerts} /></h3><p>🔴 RED</p></div></Tooltip>
-                <Tooltip text="Warning alerts"><div className="stat-card orange"><h3><AnimatedCounter value={stats.orange_alerts} /></h3><p>🟠 ORANGE</p></div></Tooltip>
+                <Tooltip text="Model-generated high-risk predictions"><div className="stat-card red"><h3><AnimatedCounter value={stats.red_alerts} /></h3><p>🔴 High-Risk Predictions</p></div></Tooltip>
+                <Tooltip text="Model-generated elevated-risk predictions"><div className="stat-card orange"><h3><AnimatedCounter value={stats.orange_alerts} /></h3><p>🟠 Elevated-Risk Predictions</p></div></Tooltip>
               </div>
             )}
-            <LivesSaved redAlerts={stats?.red_alerts} />
+            <p style={{ fontSize: '0.7rem', color: '#64748b', textAlign: 'center', marginTop: '5px' }}>
+              Model-generated signals — not confirmed outbreaks
+            </p>
             <WeeklySummary stats={stats} />
           </div>
 
-          {/* LIVE DEMO */}
           <div className="section">
             <LiveDemo />
           </div>
 
-          {/* ACTION CARDS */}
           <div className="section">
             <ActionCards 
               onPredict={() => fetchDistrict("Mumbai")}
@@ -173,7 +169,6 @@ function App() {
             />
           </div>
 
-          {/* MAP + RANKINGS ROW */}
           <div className="map-rankings-row">
             <div className="map-block">
               <h2>🗺️ India District Risk Map</h2>
@@ -195,12 +190,11 @@ function App() {
             </div>
           </div>
 
-          {/* AI DECISION SUPPORT (Drawer) */}
           {selectedDistrict && districtData && (
             <div className="drawer-section">
               <div className="section">
                 <h2>📍 {selectedDistrict} — Predictions</h2>
-                <p>🔴 {districtData.red_alerts} RED | 🟠 {districtData.orange_alerts} ORANGE</p>
+                <p>🔴 {districtData.red_alerts} High-Risk | 🟠 {districtData.orange_alerts} Elevated-Risk</p>
                 <div className="predictions-table">
                   <table>
                     <thead><tr><th>Pathogen</th><th>Antibiotic</th><th>Current</th><th>Predicted</th><th>Status</th></tr></thead>
@@ -222,13 +216,10 @@ function App() {
             </div>
           )}
 
-          {/* EMERGING HOTSPOTS */}
           <div className="section"><EmergingHotspots /></div>
 
-          {/* COMPARE DISTRICTS */}
           <div className="section"><CompareDistricts /></div>
 
-          {/* ANALYTICS CHARTS */}
           {districtData && (
             <div className="section">
               <h2>📊 Analytics for {selectedDistrict}</h2>
@@ -241,10 +232,8 @@ function App() {
             </div>
           )}
 
-          {/* ALERT HISTORY */}
           <AlertsPage />
 
-          {/* LEADERBOARD */}
           <div className="section">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
               <h2 style={{ margin: 0 }}>🏆 District Resistance Leaderboard</h2>
@@ -272,19 +261,17 @@ function App() {
             </div>
           </div>
 
-          {/* FOOTER ZONE */}
           <DataSource />
           <DataProvenance />
           <FooterStats stats={stats} />
           <Feedback />
 
-          {/* FLOATING ELEMENTS */}
           <BackToTop />
           <ShortcutsModal show={showShortcuts} onClose={() => setShowShortcuts(false)} />
           <Changelog show={showChangelog} onClose={() => setShowChangelog(false)} />
 
           <footer className="footer">
-            <p>ResistNet v2.0 | Built for India's fight against superbugs</p>
+            <p>ResistNet v2.0 | Prototype for demonstration | Not for clinical use</p>
           </footer>
         </div>
       </>
