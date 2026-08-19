@@ -37,6 +37,7 @@ import ActionCards from './ActionCards';
 import DataProvenance from './DataProvenance';
 import DataSource from './DataSource';
 import Feedback from './Feedback';
+import Limitations from './Limitations';
 
 function App() {
   const [stats, setStats] = useState(null);
@@ -269,6 +270,7 @@ function App() {
           <BackToTop />
           <ShortcutsModal show={showShortcuts} onClose={() => setShowShortcuts(false)} />
           <Changelog show={showChangelog} onClose={() => setShowChangelog(false)} />
+                      <Limitations />
 
           <footer className="footer">
             <p>ResistNet v2.0 | Prototype for demonstration | Not for clinical use</p>

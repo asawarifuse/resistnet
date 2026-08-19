@@ -21,6 +21,7 @@ from src.api.simulator_endpoint import router as simulator_router
 from src.api.emerging_endpoint import router as emerging_router
 from src.api.response_endpoint import router as response_router
 from src.api.propagation_endpoint import router as propagation_router
+from src.api.validation_endpoint import router as validation_router
 
 app = FastAPI(
     title="ResistNet API",
@@ -34,6 +35,7 @@ app.include_router(simulator_router)
 app.include_router(emerging_router)
 app.include_router(response_router)
 app.include_router(propagation_router)
+app.include_router(validation_router)
 
 app.add_middleware(
     CORSMiddleware,
